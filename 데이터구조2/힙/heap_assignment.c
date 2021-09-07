@@ -46,7 +46,6 @@ element delete_max_heap(HeapType* h){
 
     if (h->heap_size == 0){
         printf("Empty\n");
-        return;
     }
 
     else{
@@ -88,8 +87,10 @@ int main(void){
             insert_max_heap(heap, num);
         }
         else if (command == 'D'){
-            
-            printf("%d\n", delete_max_heap(heap).key);
+            delete_max_heap(heap).keys
+            if( != 'None'){
+                printf("%d\n", );
+            }
         }
         else if (command == 'Q'){
             break;
