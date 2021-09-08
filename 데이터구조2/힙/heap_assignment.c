@@ -2,8 +2,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX_ELEMENT 100
+#define MAX_ELEMENT 100 // 2-1 조건. Heap의 최대크기는 100으로 정한다.
 
+// MAX heap 구현
 typedef struct{
     int key;
 } element;
@@ -12,14 +13,17 @@ typedef struct {
     int heap_size;
 } HeapType;
 
+// MAX heap 생성
 HeapType* create(){
     return (HeapType*)malloc(sizeof(HeapType));
 }
 
+// MAX heap 초기화
 void init(HeapType* h){
     h->heap_size = 0;
 }
 
+// 연산의 종류 1. 삽입
 void insert_max_heap(HeapType* h, element item){
 
     int i;
@@ -40,6 +44,7 @@ void insert_max_heap(HeapType* h, element item){
 
 }
 
+// 연산의 종류 2. 삭제후 출력
 element delete_max_heap(HeapType* h){
     int parent, child;
     element item, temp;
@@ -66,10 +71,11 @@ element delete_max_heap(HeapType* h){
             child *= 2;
         }
         h->heap[parent] = temp;
-        return item;   
+        printf("%d\n", item);
     }
 }
 
+// 메인 함수
 int main(void){
     HeapType* heap;
 
@@ -87,10 +93,7 @@ int main(void){
             insert_max_heap(heap, num);
         }
         else if (command == 'D'){
-            delete_max_heap(heap).keys
-            if( != 'None'){
-                printf("%d\n", );
-            }
+            delete_max_heap(heap);
         }
         else if (command == 'Q'){
             break;
