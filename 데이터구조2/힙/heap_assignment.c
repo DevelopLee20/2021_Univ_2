@@ -28,8 +28,7 @@ void insert_max_heap(HeapType* h, element item){
 
     int i;
 
-    // 조건 수정
-    if (h->heap_size == 100){
+    if (h->heap_size >= MAX_ELEMENT){
         printf("Full\n");
     }
     else{
@@ -41,7 +40,6 @@ void insert_max_heap(HeapType* h, element item){
         }
         h->heap[i] = item;
     }
-
 }
 
 // 연산의 종류 2. 삭제후 출력
@@ -49,16 +47,17 @@ element delete_max_heap(HeapType* h){
     int parent, child;
     element item, temp;
 
-    if (h->heap_size == 0){
+    if (h->heap_size <= 0){
         printf("Empty\n");
     }
 
     else{
-        item = h->heap[1];
-        temp = h->heap[(h->heap_size)--];
+        item = h->heap[1];                // 최상단 노드
+        temp = h->heap[(h->heap_size)--]; // 말단 노드
         parent = 1;
         child = 2;
         
+        // 비교가 자식 노드의 왼쪽 오른쪽을 비교하는게 아니라 그냥 1부터 차례로 비교함
         while (child <= h->heap_size){
             if ((child < h->heap_size) && (h->heap[child].key) < h->heap[child+1].key){
                 child++;
