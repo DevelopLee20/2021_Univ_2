@@ -8,7 +8,6 @@
 typedef struct{
     int key;
 } element;
-
 typedef struct {
     element heap[MAX_ELEMENT];
     int heap_size;
@@ -26,14 +25,10 @@ void init(HeapType* h){
 
 // 연산의 종류 1. 삽입
 void insert_max_heap(HeapType* h, element item){
+
     int i;
 
-<<<<<<< HEAD
     if (h->heap_size >= MAX_ELEMENT){
-=======
-    // 모두 차 있는 경우 Full
-    if (h->heap_size == 100){
->>>>>>> 6ded01e15177fd09d8a59f543dc1b5bf37ede25b
         printf("Full\n");
     }
     else{
@@ -52,21 +47,12 @@ element delete_max_heap(HeapType* h){
     int parent, child;
     element item, temp;
 
-<<<<<<< HEAD
     if (h->heap_size <= 0){
-=======
-    // 비어있는 경우 Empty
-    if (h->heap_size == 0){
->>>>>>> 6ded01e15177fd09d8a59f543dc1b5bf37ede25b
         printf("Empty\n");
     }
 
     else{
-<<<<<<< HEAD
         item = h->heap[1];                // 최상단 노드
-=======
-        item = h->heap[1]; // 최상단 노드
->>>>>>> 6ded01e15177fd09d8a59f543dc1b5bf37ede25b
         temp = h->heap[(h->heap_size)--]; // 말단 노드
         parent = 1;
         child = 2;
