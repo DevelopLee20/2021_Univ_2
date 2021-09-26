@@ -1,0 +1,73 @@
+#site_title {
+    margin: auto; /* 중앙 설정 */
+    width: max-content; /* 전체 화면 기준 */
+}
+
+#goods_box {
+    border: 1px solid;
+    padding: 50px;
+    width: fit-content;
+}
+
+#goods_set {
+    padding: 3%;
+    width: max-content;
+    float: left;
+}
+
+#goods_explain {
+    float: right;
+}
+
+#goods_expain_margin {
+    margin: 100px;
+}
+
+.set_blue {
+    color:#4343ff;
+    font-weight:bold;
+}
+
+#mid {
+    margin: auto;
+    width: auto;
+    background-color: #fff;
+}
+
+a {
+    text-decoration:none;
+}
+
+#bottom_menu{
+    width:1600px;
+    height:20px;
+    margin-left:60px;
+    float: left;
+    border-top: solid #222 1px;
+}
+#bottom_menu ul {
+    margin-top:2%;
+}
+
+#bottom_menu ul li{
+    float:left;  /* 가로로 배치 */ 
+    padding:5px 30px;
+    border-right:1px solid #999;
+    color: #666;
+}
+
+#mid_1 {
+    margin: auto;
+    width: max-content;
+}
+
+#box {
+    border: solid 1px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 20px;
+}
+
+.left {
+    float: left;
+}
