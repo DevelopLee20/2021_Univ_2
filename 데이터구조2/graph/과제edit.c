@@ -1,65 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <string.h>
 
 #define MAX_VERTICES 50
 
-char name_tag[50] = {'A','B','C','D','F','G','H','I','J'};
-int visited[MAX_VERTICES];
+int visited[MAX_VERTICES] = {0,};
+int visited1[MAX_VERTICES] = {0,};
 
-typedef struct GraphType {
+typedef struct GraphNode{
+    int vertex;
+    struct GraphNode *link;
+} GraphNode;
+
+typedef struct GraphType{
     int n;
     int adj_mat[MAX_VERTICES][MAX_VERTICES];
+    int v[MAX_VERTICES];
+    GraphNode *adj_list[MAX_VERTICES];
 } GraphType;
-
-typedef struct ListNode{
-    int data;
-    struct ListNode *link;
-} ListNode;
-
-void get_node(ListNode *l, int item){
-
-    ListNode *node = (ListNode *)malloc(sizeof(ListNode));
-
-    node = l;
-
-    while( node != NULL ){
-        node = node->link;
-    }
-    node->data = item;
-    l->link = node;
-}
 
 void init(GraphType *g){
     g->n = 0;
-    for (int r=0; r<MAX_VERTICES; r++){
-        for (int c=0; c<MAX_VERTICES; c++){
+    for(int r=0; r<MAX_VERTICES; r++){
+        for(int c=0; c<MAX_VERTICES; c++){
             g->adj_mat[r][c] = 0;
         }
     }
 }
 
 void insert_vertex(GraphType *g, int v){
-    if (((g->n)+1) > MAX_VERTICES){
+    if (((g->n) + 1) > MAX_VERTICES){
         fprintf(stderr, "그래프: 정점의 개수 초과");
         return;
     }
+    g->v[g->n] = v;
     g->n++;
 }
 
-int insert_edge(GraphType *g, int start, int end){
-    if (start >= g->n || end >= g->n){
-        fprintf(stderr, "그래프: 정점의 번호 오류");
-        exit(1);
-    }
-    g->adj_mat[start][end] = 1;
-    g->adj_mat[end][start] = 1;
-}
-
-void print_adj_mat(GraphType* g){
+void print_adj_mat(GraphType *g){
     for(int i=0; i<g->n; i++){
-        printf("%c ", i+65);
+        printf("%c ", g->v[i]);
         for(int j=0; j<g->n; j++){
             printf("%2d ", g->adj_mat[i][j]);
         }
@@ -67,52 +47,73 @@ void print_adj_mat(GraphType* g){
     }
 }
 
-void print_adj_list(ListNode* l, int point){
-    ListNode *node = l;
+// 무작위 그래프 발생
+// 그래프 포인터, 노드의 개수, 정점의 개수
+void rand_edge(GraphType *g, int num, int point){
+    srand(time(NULL));
 
-    printf("%c -> ", point+65);
-    while( node != NULL ){
-        printf("%d ", node->data);
-        node = node->link;
+    while(num){
+        int x = rand() % point;
+        int y = rand() % point;
+        
+        if (x != y && g->adj_mat[x][y] + g->adj_mat[y][x] == 0){
+            g->adj_mat[x][y] = 1;
+            g->adj_mat[y][x] = 1;
+            num--;
+        }
     }
 }
 
 void dfs_mat(GraphType *g, int v){
     visited[v] = 1;
-    printf("%c ", v+65);
-    
-    for (int w=0; w<g->n; w++){
+    printf("%c ", g->v[v]);
+    for(int w=0; w<g->n; w++){
         if (g->adj_mat[v][w] && !visited[w]){
             dfs_mat(g, w);
         }
     }
 }
 
-// 1. 무작위로 그래프를 발생시키는 함수
-void rand_vertex(GraphType *g, int node, int point){
-    srand(time(NULL));
-    int cnt = 0;
+void make_list(GraphType *g, int point){
+    for(int i=point-1; i>-1; i--){
+        for(int j=point-1; j>-1; j--){
+            if(g->adj_mat[i][j] == 1){
+                GraphNode *node = (GraphNode*)malloc(sizeof(GraphNode));
+                node->vertex = j;
+                node->link = g->adj_list[i];
+                g->adj_list[i] = node;
+            }
+        }
+    }
+}
 
-    while( cnt != node ){
-        int rand_x = rand() % point;
-        int rand_y = rand() % point;
-        if (rand_x != rand_y && g->adj_mat[rand_x][rand_y] != 1){
-            insert_edge(g, rand_x, rand_y);
-            cnt++;
+void print_adj_list(GraphType *g){
+    for(int i=0; i<g->n; i++){
+        GraphNode *p = g->adj_list[i];
+        printf("정점 %c의 인접 리스트 ", i);
+        while(p != NULL){
+            printf("-> %d ", p->vertex);
+            p = p->link;
+        }
+        printf("\n");
+    }
+}
+
+void dfs_list(GraphType *g, int v){
+    GraphNode *w;
+    visited1[v] = 1;
+    printf("%c ", g->v[v]);
+    for(w = g->adj_list[v]; w; w=w->link){
+        if (!visited1[w->vertex]){
+            dfs_list(g, w->vertex);
         }
     }
 }
 
 int main(void){
     int point, node;
-    GraphType *g;
-    ListNode *l[MAX_VERTICES];
 
-    for(int i=0; i<MAX_VERTICES; i++){
-        l[i] = (ListNode*)malloc(sizeof(ListNode));
-    }
-    g = (GraphType*)malloc(sizeof(GraphType));
-
+    GraphType *g = (GraphType *)malloc(sizeof(GraphType));
     init(g);
 
     printf("정점의 개수는? ");
@@ -123,29 +124,22 @@ int main(void){
     scanf("%d", &node);
     fflush(stdin);
 
-    for(int i=0; i<point; i++){
+    for(int i=65; i<65+point; i++){
         insert_vertex(g, i);
     }
 
-    rand_vertex(g, node, point);
+    rand_edge(g, node, point);
 
     print_adj_mat(g);
 
-    printf("DFS: ");
+    printf("mat DFS: ");
     dfs_mat(g, 0);
+    printf("\n");
 
-    for(int i=0; i<g->n; i++){
-        for(int j=g->n; j>i; j--){
-            if( g->adj_mat[i][j] == 1 ){
-                get_node(l[i], j);
-            }
-        }
-        printf("\n");
-    }
+    make_list(g, point);
+    printf("lst DFS: ");
+    dfs_list(g, 0);
 
-    for(int i=0; i<point; i++){
-        print_adj_list(l[i], point);
-    }
 
     free(g);
 
