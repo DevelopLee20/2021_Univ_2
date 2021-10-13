@@ -1,10 +1,13 @@
+// Car 클래스 만들기
+// 타이어를 갈아 낄 수 있도록
+
 #include <iostream>
 #include <string>
 using namespace std;
 
 class Car{
-public:
-    int speed;
+public: // public, private | default: private
+    int speed = 5;
     int gear;
     string color;
 
@@ -16,6 +19,10 @@ public:
         speed -= 10;
     }
 
+    void setspeed(int s){
+        speed = speed;
+    }
+
     void show(){
         cout << speed << endl;
         cout << gear << endl;
@@ -25,16 +32,8 @@ public:
 
 int main(void){
     Car myCar;
-    Car *pointCar = new Car;
 
-    delete pointCar; // free(pointCar);
-
-    myCar.color = "blue";
-    myCar.gear = 3;
-    myCar.speed = 10;
-
-    myCar.speedDown();
-    myCar.speedUp();
+    myCar.setspeed(10);
 
     myCar.show();
 

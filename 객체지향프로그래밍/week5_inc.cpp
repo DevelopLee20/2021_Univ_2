@@ -3,7 +3,7 @@
 using namespace std;
 
 class Car{
-public:
+public: // public, private | default: private
     int speed;
     int gear;
     string color;
