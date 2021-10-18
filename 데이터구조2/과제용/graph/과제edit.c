@@ -87,18 +87,6 @@ void make_list(GraphType *g, int point){
     }
 }
 
-void print_adj_list(GraphType *g){
-    for(int i=0; i<g->n; i++){
-        GraphNode *p = g->adj_list[i];
-        printf("정점 %c의 인접 리스트 ", i);
-        while(p != NULL){
-            printf("-> %d ", p->vertex);
-            p = p->link;
-        }
-        printf("\n");
-    }
-}
-
 void dfs_list(GraphType *g, int v){
     GraphNode *w;
     visited1[v] = 1;
