@@ -29,15 +29,15 @@ void insert_vertex(GraphType *g, int v){
     g->n++;
 }
 
-void insert_edge(GraphType *g, int u, int v){
-    GraphNode *node = (GraphNode*)malloc(sizeof(GraphNode));
+void insert_edge(GraphType *g, int u, int v){                   // 그래프 포인터, 연결점, [이름]
+    GraphNode *node = (GraphNode*)malloc(sizeof(GraphNode));    // 동적생성
 
-    if(u >= g->n || v >= g->n){
+    if(u >= g->n || v >= g->n){                                 // 최대 5개 다 -> 0~4, 5오류
         fprintf(stderr, "[insert_edge]그래프: 정점 번호 오류");
         return;
     }
-    node->vertex = v;
-    node->link = g->adj_list[u];
+    node->vertex = v;               // node 포인터의 vertex = v; [이름]
+    node->link = g->adj_list[u];    // node->link = g->adj_list[연결점] 이름이 0이야 0 -> 3  v = 0, u = 3
     g->adj_list[u] = node;
 }
 

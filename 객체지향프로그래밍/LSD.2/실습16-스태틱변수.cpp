@@ -3,7 +3,7 @@ using namespace std;
 
 void sub(void){
     int i = 0;
-    static int s = 0;
+    static int s = 0;   // 스태틱 변수 선언
 
     i++;
     s++;
@@ -11,7 +11,7 @@ void sub(void){
 }
 
 int main(void){
-    sub();
+    sub(); // 3번 호출해도 i는 초기화 s는 초기화 되지 않음
     sub();
     sub();
 

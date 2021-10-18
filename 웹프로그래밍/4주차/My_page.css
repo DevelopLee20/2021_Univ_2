@@ -56,12 +56,12 @@ a {
     color: #666;
 }
 
-#mid_1 {
+.mid {
     margin: auto;
     width: max-content;
 }
 
-#box {
+.box {
     border: solid 1px;
     padding-left: 100px;
     padding-right: 100px;

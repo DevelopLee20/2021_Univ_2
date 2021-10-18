@@ -1,0 +1,16 @@
+<html>  <!--크리스마스 이벤트 페이지로 이동시킬 수 있는 팝업창 띄우기-->
+<head>
+<title>Christmas event</title>
+<script language="javascript">
+function moveClose(){
+  opener.location.href="christmasevent.html";
+  self.close();
+}
+</script>
+</head>
+<body>
+<image src="christmas.png" alt="크리스마스이벤트페이지" width=480 height=490 />
+<input type="button" value="닫기" onclick="self.close();" />
+<input type="button" value="이벤트 페이지로 이동" onclick="moveClose();" />
+</body>
+</html>

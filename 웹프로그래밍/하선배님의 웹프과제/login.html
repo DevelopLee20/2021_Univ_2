@@ -1,0 +1,75 @@
+<html>
+
+<head>
+<title>주문 입력란</title>
+</head>
+<table border="1">
+<form>
+<tr><td colspan=2 bgcolor="#f5fa8e">주문 입력 사항</td></tr>
+<tr><td>이름</td><td><input type="text" size=10></td></tr>
+<tr><td>비밀번호</td><td><input type="password" name="pass" size=15>*15자리 이내의 영문과 숫자만 가능합니다.</td></tr>
+<tr><td>비밀번호 확인</td><td><input type="password" name="pass" size=15>*확인을 위해서 재입력 해주세요.</td></tr>
+<tr><td>이메일</td><td><input type="email" required></td></tr>
+<tr><td>주소</td><td><input size=5 name="주소 앞칸" type="text">-<input size=5 name="주소 뒷칸"  type="text"> <input type="button" value="찾기"> <br><input type="text" size=35 name="주소앞"><intput type="text" name="주소뒤" size=45></td></tr>
+<tr><td>전화번호</td><td><input size=5 name="전번1" type="text">-<input size=5 name="전번2" type="text">-<input size=5 name="전번3" type="text"></td></tr>
+<tr><td>주문 종류 선택</td>
+ <td><input type="checkbox" name="bakery" value="Bread">Bread
+ <input type="checkbox" name="bakery" value="Cake">Cake
+ <input type="checkbox" name="bakery" value="Macaron">Macaron
+ <input type="checkbox" name="bakery" value="Cookie">Cookie
+ <input type="checkbox" name="bakery" value="Sweets">Sweets</td>
+</tr>
+<tr><td>Bread</td>
+ <td><select name="breads">
+   <option value="핫도그" selected>핫도그</option>
+   <option value="치즈 베이글">치즈 베이글</option>
+   <option value="스콘">스콘</option>
+   <option value="에그타르트">에그타르트</option>
+   <option value="크로크뮤슈">크로크뮤슈</option>
+   <option value="크로와상">크로와상 샌드위치</option>
+   <td>수량: <input type="text" name="breads"></td>
+ <td>
+</tr>
+<tr><td>Cake</td>
+ <td><select name="cakes">
+   <option value="레드벨벳" selected>레드벨벳케익</option>
+   <option value="치즈케익">뉴욕치즈케익</option>
+   <option value="티라미수">티라미수</option>
+   <option value="당근">당근케익</option>
+   <option value="말차">말차유자파운드케익</option>
+   <option value="단호박">단호박케익</option><br />
+   <td>수량: <input type="text" name="cakes"></td>
+ <td>
+</tr>
+<tr><td>Macaron</td>
+ <td><select name="macarons">
+   <option value="카라멜" selected>카라멜마카롱</option>
+   <option value="쇼콜라">쇼콜라마카롱</option>
+   <option value="딸기">딸기마카롱</option>
+   <option value="바닐라">바닐라마카롱</option>
+   <option value="말차">말차마카롱</option>
+   <td>수량: <input type="text" name="macarons"></td>
+ <td>
+</tr>
+<tr><td>Cookie</td>
+ <td><select name="cookies">
+   <option value="마카다미아" selected>마카다미아쿠키</option>
+   <option value="크랜베리">크랜베리월넛쿠키</option>
+   <option value="퍼지월넛">퍼지월넛쿠키</option>
+   <option value="잉글리쉬토피">잉글리쉬토피쿠키</option>
+   <td>수량: <input type="text" name="cookies"></td>
+ <td>
+</tr>
+<tr><td>Sweets</td>
+ <td><select name="sweets">
+   <option value="양갱" selected>양갱 4종 세트</option>
+   <option value="카라멜">카라멜 10개입 선물세트</option>
+   <option value="초콜릿">밀크 초콜릿</option>
+   <td>수량: <input type="text" name="sweets"></td>
+ <td>
+</tr>
+
+<input type="submit">
+</form>
+</table>
+</html>

@@ -1,0 +1,101 @@
+*{
+   padding: 0px;
+   margin: 0px;
+}
+/* 나눔 고딕 웹 폰트 */
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+body {
+	margin: 0;
+	padding: 0;
+	font-family: '나눔 고딕', '맑은 고딕', 'Calibri', 'Arial';
+              background-color: #f3f3e9
+}
+
+/* 로고 부분의 디자인을 정의. */
+.logo {
+	padding-left: 25px;
+	text-align: center;
+}
+
+/*로고 애니메이션 디자인 정의*/
+img.infinite_rotating_logo{
+    animation: rotate_image 10s linear infinite;
+    transform-origin: 50% 50%;
+}
+ 
+@keyframes rotate_image{
+	100% {
+    	transform: rotate(360deg);
+    }
+}
+
+/* 메뉴 부분의 디자인을 정의*/
+.menu {
+	background-color: #595959;
+	color: #ffffff;
+	list-style: none;
+	text-align: center;
+	padding: 20px 0 20px 0;
+              margin: 40px;
+	font-family: 'Arial';
+}
+.menu > li {
+	display: inline-block;
+	padding: 0 25px 0 25px;
+}
+.menu > li > a {
+	text-decoration: none;
+	color: #ffffff;
+}
+.menu > li > a:hover {
+	color: #c1c1c1;
+}
+
+/* 홈 페이지의 디자인을 정의 */
+.home {
+	text-align:center;
+	display: block;
+}
+.home img {
+	width: 960px;
+}
+aside#left{
+              width: 175px;
+              margin-top: 20px;
+              margin-left: 40px;
+              float: left;
+}
+aside#right{
+              padding: 50px;
+              margin-left: 10px;
+              width: 200px;
+              float: right;
+}
+#shopcart{
+             margin-botton: 20px;
+             padding: 20px 0 20px 0;
+             border-radius:15px;  
+             border:2px gray solid; border-style:dashed;
+             box-shadow:6px 6px 5px #888888;
+             text-align:center;
+}
+#login{
+            margin-top: 40px;
+            padding: 20px 0 20px 0;
+            border-radius:15px;  
+            border:2px gray solid; border-style:dashed;
+            box-shadow:6px 6px 5px #888888;
+            text-align:center;
+}
+
+/* 페이지 하단의 디자인을 정의*/
+footer {
+	margin: 0s% auto;
+	padding: 2%;
+              clear:both;
+	font-size:12px;
+	background-color:#666;
+	text-align: center;
+	color:white;
+              font-family: 'Arial';
+}

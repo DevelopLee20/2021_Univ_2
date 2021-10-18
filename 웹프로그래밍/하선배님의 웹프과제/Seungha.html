@@ -1,0 +1,74 @@
+<!DOCTYPE html> <!--메인 페이지-->
+<html>
+<head>
+<style>h1{text-align: center; font-weight: bold; font-size: 3.0em}</style>
+<style>p#t1{text-align: center; font-weight: bold; font-size: 1.4em}</style>
+<style>p#t2{text-align: center}</style>
+<style>.type1{text-align: center; font-size: 1.2em}</style>
+
+<title>Seungha's homepage</title>
+<link rel="stylesheet" type="text/css" href="./css/mainstyle.css"> 
+
+<script language="javascript"> <!--팝업창 띄우기 함수-->
+function showPopup(){window.open("christmaspopup.html","a","width=500, height=500, left=100, top=50");}
+</script>
+</head>
+
+
+<body onload="showPopup()">
+<div class="logo">
+ <a href="Seungha.html"><img src="logo.png" class="infinite_rotating_logo"></a>
+ <a href="Seungha.html"><img src="title.png"></a> 
+</div>
+
+
+<ul class="menu">
+ <li><a href="bread.html">Bread</a></li>
+ <li><a href="cake.html">Cake</a></li>
+ <li><a href="macaron.html">Macaron</a></li>
+ <li><a href="cookie.html">Cookie</a></li>
+ <li><a href="sweets.html">Sweets</a></li>
+ <li><a href="christmasevent.html">Christmas Event</a></li>  
+</ul>
+
+<aside id = "left">
+<p id="t1"><br></p>
+<div class="home"><img src="dessert2.png"></div>
+<div class="home"><img src="home.png"></div>
+</aside>
+
+<aside id = "right">
+<div id= "shopcart">
+<h4>Shopping Cart</h4>
+현재 쇼핑카트에 물품이 없습니다.<br  />
+<a href="shopcart.html">쇼핑카트 보기</a>
+</div>
+
+<div id = "login">
+<h4>Log In</h4>
+<form action="#">
+Id
+<input type="text" size=18    /><br  />
+Password
+<input type="password" size=10     /><br  />
+<input type="submit" value="로그인"    />
+<input type="reset" value="초기화"    /><br  />
+<a href="register.html" target="_blank" id="register">회원가입</a>
+<a href="lost_password.html" id="forgot">비밀번호 분실</a>
+</form>
+</div>
+</aside>
+
+
+	
+<footer> 	
+<h2 class="type1">Brand info</h2>
+<pre class="type1"><b>
+2020년에 최초 런칭한 Seungha's bakery는 온라인으로 운영하는 베이커리 브랜드 입니다.
+
+신선한 재료를 사용하여 늘 새롭고 참신한 빵과 디저트를 판매하고 있습니다.</b></pre>
+</footer>
+</aside>
+
+</body>
+</html>

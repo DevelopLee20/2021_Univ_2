@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+// inline 함수인데 그냥 그대로 대입해버림 함수를
 inline double square(double i){
     return i*i;
 }

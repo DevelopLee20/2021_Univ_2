@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+// 메소드 오버로딩이 사용가능하다. 개꿀
 int square(int i){
     cout << "square(int) 호출" << endl;
     
