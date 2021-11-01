@@ -1,5 +1,11 @@
 {
     "files.associations": {
-        "ostream": "cpp"
-    }
+        "ostream": "cpp",
+        "functional": "cpp",
+        "iostream": "cpp",
+        "iosfwd": "cpp"
+    },
+    "cSpell.words": [
+        "stod"
+    ]
 }
