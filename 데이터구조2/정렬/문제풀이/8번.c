@@ -5,6 +5,8 @@
 #define MAX_SIZE 8
 #define SWAP(x,y,t) ((t)=(x), (x)=(y), (y)=(t))
 
+////////////////////////////////////////////////////////
+
 void print_array(int list[], int left, int right){
     for(int i=0; i<MAX_SIZE; i++){
         if(i == left){
@@ -43,6 +45,8 @@ int partition(int list[], int left, int right){
 
     return high;
 }
+
+////////////////////////////////////////////////////////
 
 void quick_sort(int list[], int left, int right){
     if(left<right){

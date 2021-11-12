@@ -5,6 +5,7 @@
 #define MAX_SIZE 8
 #define SWAP(x,y,t) ((t)=(x), (x)=(y), (y)=(t))
 
+////////////////////////////////////////////////////////
 int partition(int list[], int left, int right){
     int pivot, temp;
     int low, high;
@@ -28,6 +29,7 @@ int partition(int list[], int left, int right){
 
     return high;
 }
+////////////////////////////////////////////////////////
 
 void quick_sort(int list[], int left, int right){
     if(left<right){

@@ -72,12 +72,13 @@ void radix_sort(int list[], int n){
 }
 
 int main(void){
-    int list[SIZE] = {123,398,210,409,528,003,513,129,220,294};
-    // srand(time(NULL));
+    // int list[SIZE] = {123,398,210,409,528,003,513,129,220,294};
+    int list[SIZE];
+    srand(time(NULL));
 
-    // for(int i=0; i<SIZE; i++){
-    //     list[i] = rand() % 100;
-    // }
+    for(int i=0; i<SIZE; i++){
+        list[i] = rand() % 100;
+    }
 
     radix_sort(list, SIZE);
 
