@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define SIZE 1000 // 정렬할 개수
+#define SIZE 40000 // 정렬할 개수
 #define RANGE 1000000 // 배열 개수 랜덤 배열 최대 범위 (1 ~ RANGE)
 #define SWAP(x,y,t) ((t)=(x),(x)=(y),(y)=(t))   // 퀵정렬용 스왑
-#define MAX_QUEUE_SIZE 1001  // 기수정렬 큐
+#define MAX_QUEUE_SIZE 40001  // 기수정렬 큐
 #define BUCKETS 10  // 기수정렬 저장
 #define DIGITS 7    // 기수정렬 자리수
 
@@ -167,8 +167,6 @@ void merge_test(void){  // 합병정렬 테스트
     rand_Array(list);
 
     merge_sort(list,0,SIZE-1);
-
-    // print_Array(list);
 }
 
 void quick_test(void){  // 퀵정렬 테스트
@@ -177,8 +175,6 @@ void quick_test(void){  // 퀵정렬 테스트
     rand_Array(list);
 
     quick_sort(list,0,SIZE-1);
-
-    // print_Array(list);
 }
 
 void radix_test(void){  // 기수정렬 테스트
@@ -187,8 +183,6 @@ void radix_test(void){  // 기수정렬 테스트
     rand_Array(list);
 
     radix_sort(list, SIZE);
-
-    // print_Array(list);
 }
 
 int main(void){
@@ -197,13 +191,15 @@ int main(void){
     start = clock();
     merge_test();
     end = clock();
-    printf("합병정렬 소요시간: %.8lf\n",(double)(end-start)/CLOCKS_PER_SEC);
+    printf("합병정렬 소요시간: %.4lf\n",(double)(end-start)/CLOCKS_PER_SEC);
     start = clock();
     quick_test();
-    printf(" 퀵정렬 소요시간: %.8lf\n",(double)(end-start)/CLOCKS_PER_SEC);
+    end = clock();
+    printf("퀵 정렬 소요시간: %.4lf\n",(double)(end-start)/CLOCKS_PER_SEC);
     start = clock();
     radix_test();
-    printf("기수정렬 소요시간: %.8lf\n",(double)(end-start)/CLOCKS_PER_SEC);
-
+    end = clock();
+    printf("기수정렬 소요시간: %.4lf\n",(double)(end-start)/CLOCKS_PER_SEC);
+ 
     return 0;
 }
