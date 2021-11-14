@@ -2,14 +2,30 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Gamedev Canvas Workshop</title>
+    <title>Upgrade Game</title>
     <style>
     	* { padding: 0; margin: 0; }
     	canvas { background: #eee; display: block; margin: 0 auto; }
+
+        /* 애니메이션을 위한 키프레임 추가 */
+        @keyframes move_canvas{
+            0% {width: 30%; background-color: #FFD8D8;}
+            25% {width: 40%; background-color: #FAE0D4;}
+            50% {width: 50%; background-color: #FAECC5;}
+            75% {width: 40%; background-color: #FAF4C0;}
+            100% {width: 30%; background-color: #E4F7BA;}
+        }
+
+        /* 캔버스의 아이디에 애니메이션 추가 */
+        #myCanvas{
+            animation-name: move_canvas;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
     </style>
 </head>
 <body>
-
+<audio src="SellBuyMusic.mp3" autoplay loop controls></audio>
 <canvas id="myCanvas" width="480" height="320"></canvas>
 
 <script>
@@ -18,22 +34,26 @@
     var ballRadius = 10;
     var x = canvas.width/2;
     var y = canvas.height-30;
-    var dx = 2;
-    var dy = -2;
+    var dx = 4;
+    var dy = -4;
     var paddleHeight = 10;
-    var paddleWidth = 75;
+    var paddleWidth = 100;
     var paddleX = (canvas.width-paddleWidth)/2;
     var rightPressed = false;
     var leftPressed = false;
     var brickRowCount = 5;
-    var brickColumnCount = 3;
+    var brickColumnCount = 5;
     var brickWidth = 75;
     var brickHeight = 20;
     var brickPadding = 10;
-    var brickOffsetTop = 30;
+    var brickOffsetTop = 50;
     var brickOffsetLeft = 30;
     var score = 0;
+    var count = 0;
+    var combo = 0;
     var lives = 3;
+    var color_list = ["#0095DD","#BCFF66","#31E0C1","#9F814F","#FF6E6E","#00FFFF","#FF5675","#FFB400","#DA70D","#000000"]
+    var rand = parseInt(Math.random()*10);
 
     var bricks = [];
     for(var c=0; c<brickColumnCount; c++) {
@@ -75,17 +95,29 @@
         for(var c=0; c<brickColumnCount; c++) {
             for(var r=0; r<brickRowCount; r++) {
                 var b = bricks[c][r];
-                if(b.status == 1) {
+                if(b.status == 1) { // 블록이 깨지지 않음을 판단
+                    // 블록이 닿았음을 판단
                     if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
                         dy = -dy;
                         b.status = 0;
-                        score++;
-                        if(score == brickRowCount*brickColumnCount) {
-                            alert("YOU WIN, CONGRATS!");
-                            document.location.reload();
+                        count++;
+                        score = score + (4-lives)*combo + 1;    // 점수체계 수정
+                        combo++;    // 콤보 추가
+                        if(count == brickRowCount*brickColumnCount) {
+                            reset_Bricks(); // 블록 재생성 호출
+                            count = 0;
                         }
                     }
                 }
+            }
+        }
+    }
+
+    function reset_Bricks(){
+        for(var c=0; c<brickColumnCount; c++){
+            for(var r=0; r<brickRowCount; r++){
+                // 블록을 재생성
+                bricks[c][r].status = 1;
             }
         }
     }
@@ -114,7 +146,8 @@
                     bricks[c][r].y = brickY;
                     ctx.beginPath();
                     ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                    ctx.fillStyle = "#0095DD";
+                    // 랜덤한 색상을 가짐
+                    ctx.fillStyle = color_list[(rand+c+r)%10];
                     ctx.fill();
                     ctx.closePath();
                 }
@@ -125,6 +158,8 @@
         ctx.font = "16px Arial";
         ctx.fillStyle = "#0095DD";
         ctx.fillText("Score: "+score, 8, 20);
+        // 현재 콤보 출력, Score의 하단에 출력
+        ctx.fillText("Combo: "+combo, 8, 40);   
     }
     function drawLives() {
         ctx.font = "16px Arial";
@@ -149,12 +184,13 @@
     }
     else if(y + dy > canvas.height-ballRadius) {
         if(x > paddleX && x < paddleX + paddleWidth) {
-        dy = -dy;
+            dy = -dy;
         }
         else {
             lives--;
+            combo = 0;
             if(!lives) {
-                alert("GAME OVER");
+                alert("GAME OVER\nScore: "+score);
                 document.location.reload();
             }
             else {
