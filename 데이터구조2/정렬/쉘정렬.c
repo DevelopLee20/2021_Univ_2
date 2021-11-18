@@ -1,12 +1,12 @@
 #include <stdio.h>
 
 inc_insertion_sort(int list[], int first, int last, int gap){
-    int key;
+    int i, j, key;
 
     for(int i=first+gap; i<=last; i=i+gap){
         key = list[i];
 
-        for(int j=i-gap; j>=first && key<list[j]; j=j-gap){0
+        for(j=i-gap; j>=first && key<list[j]; j=j-gap){
             list[j+gap] = list[j];
         }
         list[j+gap] = key;
@@ -14,8 +14,12 @@ inc_insertion_sort(int list[], int first, int last, int gap){
 }
 
 void shell_sort(int list[], int n){
+    int i, gap;
     for(int gap=n/2; gap>0; gap=gap/2){
-
+        if((gap%2) == 0) gap++;
+        for(i=0; i<gap; i++){
+            inc_insertion_sort(list, i, n-1, gap);
+        }
     }
 
 }
