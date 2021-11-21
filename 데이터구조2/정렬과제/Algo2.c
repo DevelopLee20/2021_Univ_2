@@ -6,8 +6,6 @@
 #define SIZE 1000 // 정렬할 개수
 #define RANGE 1000000 // 배열 개수 랜덤 배열 최대 범위 (1 ~ RANGE)
 
-int num = 1;
-
 // 랜덤 배열 생성
 void rand_Array(int list[]){
     srand(time(NULL));
@@ -33,7 +31,6 @@ void bubble_sort(int list[], int n){
             }
         }
     }
-    num = 1;
 }
 
 // 선택 정렬
@@ -49,7 +46,6 @@ void selection_sort(int list[], int n){
         }
         SWAP(list[i], list[least], temp);
     }
-    num = 1;
 }
 
 // 삽입 정렬
@@ -64,7 +60,6 @@ void insertion_sort(int list[], int n){
         }
         list[j+1] = key;
     }
-    num = 1;
 }
 
 // 쉘 정렬용
@@ -90,7 +85,6 @@ void shell_sort(int list[], int n){
             inc_insertion_sort(list, i, n-1, gap);
         }
     }
-    num = 1;
 }
 
 // 선택 정렬 테스트
