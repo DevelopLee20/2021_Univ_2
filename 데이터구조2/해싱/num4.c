@@ -7,8 +7,6 @@
 #define empty(item) (strlen(item.key) == 0)
 #define equal(item1, item2) (!strcmp(item1.key, item2.key))
 
-// #define DEBUG
-
 typedef struct{
     char key[KEY_SIZE];
 } element;
@@ -83,11 +81,6 @@ int hash_lp_delete(element item){
 }
 
 void call_insert(char name[]){
-    #ifdef DEBUG
-    prnitf("DEBUG ");
-    printf("name: %s\n", name);
-    #endif
-
     element e;
     strcpy(e.key,name);
     int site = hash_lp_add(e);
@@ -95,21 +88,12 @@ void call_insert(char name[]){
 }
 
 void call_search(char name[]){
-    #ifdef DEBUG
-    prnitf("DEBUG ");
-    printf("name: %s\n", name);
-    #endif
-
     element e;
     strcpy(e.key,name);
     hash_lp_search(e);
 }
 
 void call_delete(char name[]){
-    #ifdef DEBUG
-    prnitf("DEBUG ");
-    printf("name: %s\n", name);
-    #endif
     element e;
     strcpy(e.key,name);
     hash_lp_delete(e);
@@ -125,15 +109,6 @@ void interface(){
     printf("동물의 이름: ");
     scanf("%s", &name);
     fflush(stdin);
-
-    #ifdef DEBUG
-    printf("DEBUG ");
-    printf("value: %c ", value);
-    printf("name: %s ", name);
-    printf("value == i ",value == 'i');
-    printf("value == s ",value == 's');
-    printf("value == d\n",value == 'd');
-    #endif
 
     if(value == 'i'){
         call_insert(name);

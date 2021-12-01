@@ -99,13 +99,14 @@ int main(void){
         e.key = data[i];
         hash_chain_add(e, hash_table);
         hash_chain_print(hash_table);
+        printf("%d 삽입 성공\n", e.key);
     }
 
     e.key = data[0];
     hash_chain_delete(e, hash_table);
     hash_chain_print(hash_table);
 
-    for(int i=0; i<SIZE; i++){
+    for(int i=1; i<SIZE; i++){
         e.key = data[i];
         hash_chain_search(e, hash_table);
     }
