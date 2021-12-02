@@ -4,7 +4,7 @@
 #include <time.h>
 
 #define KEY_SIZE 4
-#define TABLE_SIZE 600
+#define TABLE_SIZE 1000
 #define empty(item) (strlen(item.key) == 0)
 #define equal(item1, item2) (!strcmp(item1.key, item2.key))
 
