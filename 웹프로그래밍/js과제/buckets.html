@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="css/main.css">
+    <title>장바구니</title>
+
+    <script>
+        var popupPage;
+        function showDialog(){
+            var popupPage = window.open("Welcome.html","childForm","a","width=200, height=100");
+        }
+        // 장바구니에 넣은 책 수 변수
+        var num = 0;
+        // 드래그 앤 드랍 설명
+        function allow_drop(e){
+            e.preventDefault();
+        }
+        function drag_start(e){
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData("Text",e.target.id);
+        }
+        function hand_drop(e){
+            e.preventDefault();
+            var src = e.dataTransfer.getData("Text");
+            var ele = document.getElementById("books_num");
+            ele.innerText = ((++num)+"권이 장바구니에 담겼습니다");
+        }
+        // 구매 완료하였을때 장바구니 초기화
+        function reset(){
+            alert(num+'권 구매 완료하였습니다~!')
+            var ele = document.getElementById("books_num");
+            ele.innerText = "!!구매 완료!!";
+        }
+    </script>
+
+</head>
+<body>
+    <div class="MainPageTitle">
+        <img src="css/src/lamp.jpg" width="200" height="100">
+        <img src="css/src/smoke.jpg" class="infinite_rotating_logo" width="100" height="100">
+        <img src="css/src/title.png">
+    </div>
+    <div class="Categori">
+        <ul>
+            <li><a href="Categori1.html">| 소설 |</a></li>
+            <li><a href="Categori2.html">| 자기계발 |</a></li>
+            <li><a href="Categori3.html">| 로맨스 |</a></li>
+            <li><a href="Categori4.html">| 만화 |</a></li>
+            <li><a href="Categori5.html">| 전공서적 |</a></li>
+            <li><a href="Categori6.html">| 기타서적 |</a></li>
+        </ul>
+    </div>
+    <div id="cart" ondrop="hand_drop(event)" ondragover="allow_drop(event)">
+        <h3 id="books_num">장바구니가 비어있습니다.</h3>
+        <button onclick="reset()">구매하기</button>
+    </div>
+    <img id="book1" src="css/src/1.jpg" draggable="true" ondragstart="drag_start(event)" width="200" height="250">
+    <img id="book2" src="css/src/2.jpg" draggable="true" ondragstart="drag_start(event)" width="200" height="250">
+    <img id="book3" src="css/src/3.jpg" draggable="true" ondragstart="drag_start(event)" width="200" height="250">
+    <img id="book4" src="css/src/4.jpg" draggable="true" ondragstart="drag_start(event)" width="200" height="250">
+    <img id="book5" src="css/src/5.jpg" draggable="true" ondragstart="drag_start(event)" width="200" height="250">
+    <img id="book6" src="css/src/6.jpg" draggable="true" ondragstart="drag_start(event)" width="200" height="250">
+    <img id="book7" src="css/src/7.jpg" draggable="true" ondragstart="drag_start(event)" width="200" height="250">
+    <img id="book8" src="css/src/8.jpg" draggable="true" ondragstart="drag_start(event)" width="200" height="250">
+    <img id="book9" src="css/src/9.jpg" draggable="true" ondragstart="drag_start(event)" width="200" height="250">
+    <img id="book10" src="css/src/10.jpg" draggable="true" ondragstart="drag_start(event)" width="200" height="250">
+    <img id="book11" src="css/src/11.jpg" draggable="true" ondragstart="drag_start(event)" width="200" height="250">
+    <img id="book12" src="css/src/12.jpg" draggable="true" ondragstart="drag_start(event)" width="200" height="250">
+    <img id="book13" src="css/src/13.jpg" draggable="true" ondragstart="drag_start(event)" width="200" height="250">
+    <img id="book14" src="css/src/14.jpg" draggable="true" ondragstart="drag_start(event)" width="200" height="250">
+    <img id="book15" src="css/src/15.jpg" draggable="true" ondragstart="drag_start(event)" width="200" height="250">
+    <img id="book16" src="css/src/16.jpg" draggable="true" ondragstart="drag_start(event)" width="200" height="250">
+    <div id="fotter">
+        <footer>
+            <ul class="UnderMenu">
+                <li><a href="MainPage.html">메인</a></li>
+                <li><a href="new.html">회원가입</a></li>
+                <li><a href="buckets.html">장바구니</a></li>
+                <li><a onclick="showDialog()">로그인</a></li>
+                <li><a href="HelpDesk.html">고객센터</a></li>
+                <li><a href="https://github.com/DevelopLee20" target="_blank">개발자</a></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+</html>

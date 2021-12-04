@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="css/main.css">
+    <title>요술램프 주인 책방</title>
+
+    <script>
+        var popupPage;
+        function showDialog(){
+            var popupPage = window.open("Welcome.html","childForm","a","width=200, height=100");
+        }
+    </script>
+
+</head>
+<body>
+    <div class="MainPageTitle">
+        <!-- 램프 그림 -->
+        <img src="css/src/lamp.jpg" width="200" height="100">
+        <!-- 회전하는 구름 그림 -->
+        <img src="css/src/smoke.jpg" class="infinite_rotating_logo" width="100" height="100">
+        <!-- '요술램프 주인 책방' 로고 -->
+        <img src="css/src/title.png">
+    </div>
+    <!-- 카테고리 라인 출력 -->
+    <div class="Categori">
+        <ul>
+            <li><a href="Categori1.html">| 소설 |</a></li>
+            <li><a href="Categori2.html">| 자기계발 |</a></li>
+            <li><a href="Categori3.html">| 로맨스 |</a></li>
+            <li><a href="Categori4.html">| 만화 |</a></li>
+            <li><a href="Categori5.html">| 전공서적 |</a></li>
+            <li><a href="Categori6.html">| 기타서적 |</a></li>
+        </ul>
+    </div>
+    <!-- 이미지 자동 슬라이드 -->
+    <div class="slide_banner">
+        <ul>
+            <li><img src="css/src/1.jpg"</li>
+            <li><img src="css/src/2.jpg"</li>
+            <li><img src="css/src/3.jpg"</li>
+            <li><img src="css/src/4.jpg"</li>
+            <li><img src="css/src/5.jpg"</li>
+            <li><img src="css/src/6.jpg"</li>
+            <li><img src="css/src/7.jpg"</li>
+            <li><img src="css/src/8.jpg"</li>
+            <li><img src="css/src/9.jpg"</li>
+            <li><img src="css/src/10.jpg"</li>
+            <li><img src="css/src/11.jpg"</li>
+            <li><img src="css/src/12.jpg"</li>
+            <li><img src="css/src/13.jpg"</li>
+            <li><img src="css/src/14.jpg"</li>
+            <li><img src="css/src/15.jpg"</li>
+            <li><img src="css/src/16.jpg"</li>
+        </ul>
+    </div>
+    <!-- 이주의 추천도서 목록 -->
+    <div class="GoodsList">
+        <ul>
+            <table class="GoodsTable">
+                <th colspan="3">
+                    이주의 추천도서
+                </th>
+                <tr>
+                    <td>
+                        <li class="Goods">
+                            <div class="jpg"><a href="#"><img src="css/src/1.jpg"></a></div>
+                            <div class="Title">C언어 콘서트</div>
+                            <div class="price">판매가: 27,000원</div>
+                            <div class="vip">회원가(10%할인): 24,300원</div>
+                            <div class="delivery">배송비: 3,000원 (50,000원 이상 구매시 무료)</div>
+                        </li>
+                    </td>
+                    <td>
+                        <li class="Goods">
+                            <div class="jpg"><a href="#"><img src="css/src/2.jpg"></a></div>
+                            <div class="Title">C언어 Express</div>
+                            <div class="price">판매가: 30,000원</div>
+                            <div class="vip">회원가(10%할인): 27,000원</div>
+                            <div class="delivery">배송비: 3,000원 (50,000원 이상 구매시 무료)</div>
+                        </li>
+                    </td>
+                    <td>
+                        <li class="Goods">
+                            <div class="jpg"><a href="#"><img src="css/src/3.jpg"></a></div>
+                            <div class="Title">파이썬으로 쉽게 풀어쓴 자료구조</div>
+                            <div class="price">판매가: 27,000원</div>
+                            <div class="vip">회원가(10%할인): 24,300원</div>
+                            <div class="delivery">배송비: 3,000원 (50,000원 이상 구매시 무료)</div>
+                        </li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <li class="Goods">
+                            <div class="jpg"><a href="#"><img src="css/src/4.jpg"></a></div>
+                            <div class="Title">컴퓨팅 사고와 문제해결</div>
+                            <div class="price">판매가: 25,000원</div>
+                            <div class="vip">회원가(10%할인): 22,500원</div>
+                            <div class="delivery">배송비: 3,000원 (50,000원 이상 구매시 무료)</div>
+                        </li>
+                    </td>
+                    <td>
+                        <li class="Goods">
+                            <div class="jpg"><a href="#"><img src="css/src/5.jpg"></a></div>
+                            <div class="Title">딥러닝 Express</div>
+                            <div class="price">판매가: 28,000원</div>
+                            <div class="vip">회원가(10%할인): 25,200원</div>
+                            <div class="delivery">배송비: 3,000원 (50,000원 이상 구매시 무료)</div>
+                        </li>
+                    </td>
+                    <td>
+                        <li class="Goods">
+                            <div class="jpg"><a href="#"><img src="css/src/6.jpg"></a></div>
+                            <div class="Title">두근두근 파이썬</div>
+                            <div class="price">판매가: 24,000원</div>
+                            <div class="vip">회원가(10%할인): 21,600원</div>
+                            <div class="delivery">배송비: 3,000원 (50,000원 이상 구매시 무료)</div>
+                        </li>
+                    </td>
+                </tr>
+            </table>
+        </ul>
+    </div>
+    <!-- 밑의 푸터 부분 -->
+    <div id="fotter">
+        <footer>
+            <ul class="UnderMenu">
+                <li><a href="MainPage.html">메인</a></li>
+                <li><a href="new.html">회원가입</a></li>
+                <li><a href="buckets.html">장바구니</a></li>
+                <li><a onclick="showDialog()">로그인</a></li>
+                <li><a href="HelpDesk.html">고객센터</a></li>
+                <li><a href="https://github.com/DevelopLee20" target="_blank">개발자</a></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+</html>
