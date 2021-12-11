@@ -69,7 +69,7 @@ int main(void){
         {INF,154,165,INF,87,0,155,INF,122},
         {INF,INF,222,INF,INF,155,0,164,INF},
         {INF,INF,INF,INF,INF,INF,164,0,INF},
-        {INF,INF,INF,INF,98,122,INF,INF,0},
+        {INF,INF,INF,INF,98,122,INF,INF,0}
     };
 
     for(int i=0; i<9; i++){
