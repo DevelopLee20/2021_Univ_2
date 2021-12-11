@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="css/main.css">
+    <title>회원가입</title>
+
+    <script>
+        var popupPage;
+        function showDialog(){
+            var popupPage = window.open("Welcome.html","childForm","a","width=200, height=100");
+        }
+        var sum = 0;
+        function checkEmpty(){
+            // 빈칸이 아닐경우 sum값이 증가함
+            sum += (document.getElementById("name").value.length == 0);
+            sum += (document.getElementById("id").value.length == 0);
+            sum += (document.getElementById("email").value.length == 0);
+            sum += (document.getElementById("tel").value.length == 0);
+            // sum 값이 0이 아닐경우 빈칸이 있음
+            if(sum != 0){
+                alert("빈칸이 있습니다!");
+            }
+            // sum 값이 0일 경우 회원가입 성공
+            else{
+                alert("회원가입이 되었습니다!");
+                window.location.href = "MainPage.html";
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <div class="MainPageTitle">
+        <img src="css/src/lamp.jpg" width="200" height="100">
+        <img src="css/src/smoke.jpg" class="infinite_rotating_logo" width="100" height="100">
+        <img src="css/src/title.png">
+    </div>
+    <div class="Categori">
+        <ul>
+            <li><a href="Categori1.html">| 소설 |</a></li>
+            <li><a href="Categori2.html">| 자기계발 |</a></li>
+            <li><a href="Categori3.html">| 로맨스 |</a></li>
+            <li><a href="Categori4.html">| 만화 |</a></li>
+            <li><a href="Categori5.html">| 전공서적 |</a></li>
+            <li><a href="Categori6.html">| 기타서적 |</a></li>
+        </ul>
+    </div>
+    <div id="form_part" style="text-align: center;">
+        <img src="css/src/new.png">
+        <form id="form_one">
+            <table style="text-align: center; margin: auto;">
+                <tr>
+                    <td rowspan="4">기본 정보</td>
+                    <td>이름</td>
+                    <td><input id="name" type="text" style="width: 200px; vertical-align: middle; border-width: 1px; height: 30px; padding: 0px 7px; background-color: rgb(153,153,153)"></td>
+                    <td>정확히 입력해주세요</td>
+                </tr>
+                <tr>
+                    <td>아이디</td>
+                    <td><input id="id" type="text" style="width: 200px; vertical-align: middle; border-width: 1px; height: 30px; padding: 0px 7px; background-color: rgb(153,153,153)"></td>
+                    <td>5자리 이상 입력해주세요</td>
+                </tr>
+                <tr>
+                    <td>이메일</td>
+                    <td><input id="email" type="email" style="width: 200px; vertical-align: middle; border-width: 1px; height: 30px; padding: 0px 7px; background-color: rgb(153,153,153)"></td>
+                    <td>이메일을 입력해주세요</td>
+                </tr>
+                <tr>
+                    <td>전화번호</td>
+                    <td><input id="tel" type="tel" style="width: 200px; vertical-align: middle; border-width: 1px; height: 30px; padding: 0px 7px; background-color: rgb(153,153,153);"></td>
+                    <td>정확히 입력해주세요</td>
+                </tr>
+                <tr>
+                    <td colspan="4"><input type="submit" onclick="checkEmpty()" value="회원가입" style="width: 130px; vertical-align: middle; height: 50px; background-color: #3774b1; color: white;"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+<div id="fotter">
+    <footer>
+        <ul class="UnderMenu">
+            <li><a href="MainPage.html">메인</a></li>
+            <li><a href="new.html">회원가입</a></li>
+            <li><a href="buckets.html">장바구니</a></li>
+            <li><a onclick="showDialog()">로그인</a></li>
+            <li><a href="HelpDesk.html">고객센터</a></li>
+            <li><a href="https://github.com/DevelopLee20" target="_blank">개발자</a></li>
+        </ul>
+    </footer>
+</div>
+</body>
+</html>

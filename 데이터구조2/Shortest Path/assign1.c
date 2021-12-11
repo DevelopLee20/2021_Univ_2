@@ -31,22 +31,15 @@ int choose(int distance[], int n, int found[]){
 
 void print_status(GraphType *g){
     static int step = 1;
-    printf("STEP %d: ", step++);
-    printf("distance: ");
     for(int i=0; i<g->n; i++){
         if(distance[i] == INF){
-            printf(" * ");
+            printf("INF "); // 수정된 부분
         }
         else{
-            printf("%2d ", distance[i]);
+            printf("%3d ", distance[i]);
         }
     }
     printf("\n");
-    printf(" found: ");
-    for(int i=0; i<g->n; i++){
-        printf("%2d ", found[i]);
-    }
-    printf("\n\n");
 }
 
 void short_path(GraphType *g, int start){
@@ -56,10 +49,12 @@ void short_path(GraphType *g, int start){
         found[i] = FALSE;
     }
     found[start] = TRUE;
+    printf(" {%d}\n", start+1); // 수정된 부분
     distance[start] = 0;
     for(i=0; i<g->n-1; i++){
         print_status(g);
         u = choose(distance, g->n, found);
+        printf(" {%d}\n", u+1); // 수정된 부분
         found[u] = TRUE;
         for(w=0; w<g->n; w++){
             if(!found[w]){
@@ -72,17 +67,21 @@ void short_path(GraphType *g, int start){
 }
 
 int main(void){
-    GraphType g = {7,
-    {{0,7,INF,INF,3,10,INF},
-    {7,0,4,10,2,6,INF},
-    {INF,4,0,2,INF,INF,INF},
-    {INF,10,2,0,11,9,4},
-    {3,2,INF,11,0,INF,5},
-    {10,6,INF,9,INF,0,INF},
-    {INF,INF,INF,4,5,INF,0}
+    GraphType g = {6,{
+        {0,10,INF,30,100,INF},
+        {INF,0,50,INF,INF,INF},
+        {INF,INF,0,INF,10,5},
+        {INF,INF,20,0,INF,15},
+        {INF,INF,INF,60,0,INF},
+        {INF,INF,INF,INF,INF,0},
     }};
 
     short_path(&g, 0);
 
+    int sum = 0;
+    for(int i=0; i<g.n; i++){
+        sum += distance[i];
+    }
+    printf("\nShortest Path: %d", sum);
     return 0;
 }

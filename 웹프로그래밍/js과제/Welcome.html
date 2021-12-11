@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="css/main.css">
+    <title>로그인</title>
+
+    <script>
+        function get_name(){
+            var name = document.getElementById("id").value;
+            var ale = name+"님 환영합니다!";
+            alert(ale);
+            window.close();
+        }
+    </script>
+
+</head>
+<body>
+    <div class="mid">
+        <h1>로그인</h1>
+        <div class="box">
+            <span>
+                <h5>아이디</h5>
+                <input id="id" type="text">
+            </span>
+            <span>
+                <h5>비밀번호</h5>
+                <input type="password">
+                <br>
+                <br>
+            </span>
+            <span>
+                <button>
+                    <a href="My_page.html" onclick="get_name()">로그인</a>
+                </button>
+                <button>
+                    <a href="My_page.html" onclick="window.close()">취소</a>
+                </button>
+            </span>
+        </div>
+    </div>
+</body>
+</html>

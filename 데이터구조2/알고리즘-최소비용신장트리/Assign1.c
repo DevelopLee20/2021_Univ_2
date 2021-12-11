@@ -75,16 +75,14 @@ void kruskal(GraphType *g){
     set_init(g->n);
     qsort(g->edges, g->n, sizeof(struct Edge), compare);
 
-    printf("크루스칼 최소 신장 트리 알고리즘 \n");
-
     for(int i=0; i<g->n; i++){
         e = g->edges[i];
         uset = set_find(e.start);
         vset = set_find(e.end);
 
         if(uset != vset){
-            printf("간선 (%d,%d) %d 선택\n", e.start, e.end, e.weight);
-            result = result + e.weight; // 이거
+            printf("(%d,%d)\n", e.start, e.end, e.weight);
+            result = result + e.weight; // 더하기 연산
             set_union(uset, vset);
         }
     }
@@ -113,10 +111,10 @@ int main(void){
                 insert_edge(g,i,j,list[i][j]);
         }
     }
-    kruskal(g);
+    kruskal(g); // 크루스칼 알고리즘 실행
     free(g);
 
-    printf("MST 간선의 가중치의 합: %d", result);
+    printf("%d", result);   // 가중치 합 출력
 
-    return EXIT_SUCCESS;
+    return EXIT_SUCCESS;    // 0
 }

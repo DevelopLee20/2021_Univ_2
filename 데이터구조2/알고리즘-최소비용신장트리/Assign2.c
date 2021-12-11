@@ -43,7 +43,7 @@ void prim(GraphType *g, int s){
         if(distance[u] == INF){
             return;
         }
-        printf("정점 %d 추가\n", u);
+        printf("%d ", u);
 
         for(int v=0; v<g->n; v++){
             if(g->weight[u][v] != INF){
@@ -78,7 +78,6 @@ int main(void){
         }
     }
 
-    printf("Prim MST\n");
     // 인천:0, 서울:1, 원주:2, 강릉:3, 전주:4, 대전:5, 대구:6, 부산:7, 광주:8
     prim(g, 1);
     free(g);
@@ -87,7 +86,7 @@ int main(void){
     for(int i=0; i<9; i++){
         result = result + distance[i];
     }
-    printf("MST 간선의 가중치의 합: %d", result);
+    printf("\n%d", result);
 
     return 0;
 }
